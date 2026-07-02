@@ -3,23 +3,28 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Menjalankan aksi ini setiap ada push ke branch main
+      - main
+
+# TAMBAHKAN BLOK INI UNTUK MEMBERIKAN IZIN TULIS SECARA PAKSA
+permissions:
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        # Menggunakan versi v4 agar warning Node.js hilang
+        uses: actions/checkout@v4
 
       - name: Inject API URL Secret
         run: |
-          # Mengganti kata kunci placeholder di script.js dengan isi dari GitHub Secret
           sed -i 's|ISI_API_URL_RAHASIA_DISINI|'${{ secrets.API_URL }}'|g' script.js
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        # Menggunakan versi terbaru agar lebih stabil
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          publish_branch: gh-pages  # Hasil injeksi akan dipublish ke branch gh-pages
+          publish_branch: gh-pages
