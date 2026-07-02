@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencatatan Uang Cloud</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 style="text-align: center;">Pencatatan Keuangan (Synced)</h1>
+
+        <div class="summary">
+            <div class="card bg-income">Pemasukan<br><span id="total-income">Rp 0</span></div>
+            <div class="card bg-balance">Saldo<br><span id="total-balance">Rp 0</span></div>
+            <div class="card bg-expense">Pengeluaran<br><span id="total-expense">Rp 0</span></div>
+        </div>
+
+        <form id="transaction-form">
+            <div class="form-group auth-box">
+                <label>PIN Autentikasi (Sesuai Sheet Sel F1)</label>
+                <input type="password" id="pin" placeholder="Masukkan PIN untuk sinkronisasi" required>
+            </div>
+            <div class="form-group">
+                <label>Nominal (Rp)</label>
+                <input type="number" id="nominal" required>
+            </div>
+            <div class="form-group">
+                <label>Kategori</label>
+                <select id="kategori" required>
+                    <option value="pemasukan">Pemasukan</option>
+                    <option value="pengeluaran">Pengeluaran</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Keterangan</label>
+                <input type="text" id="tipe" required>
+            </div>
+            <button type="submit" class="btn-submit" id="btn-submit">Simpan ke Spreadsheet</button>
+            <button type="button" class="btn-submit" id="btn-sync" style="background: #27ae60; margin-top:5px;">Ambil
+                Data dari Cloud</button>
+        </form>
+
+        <div id="loader">Sedang berkomunikasi dengan server...</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Keterangan</th>
+                    <th>Kategori</th>
+                    <th>Nominal</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-list"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

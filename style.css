@@ -1,0 +1,110 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f7f6;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card {
+    flex: 1;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+}
+
+.bg-income {
+    background: #2ecc71;
+}
+
+.bg-balance {
+    background: #3498db;
+}
+
+.bg-expense {
+    background: #e74c3c;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.form-group {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #2c3e50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-submit {
+    flex: 1 1 100%;
+}
+
+.auth-box {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #2c3e50;
+    color: white;
+}
+
+#loader {
+    text-align: center;
+    display: none;
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+}
