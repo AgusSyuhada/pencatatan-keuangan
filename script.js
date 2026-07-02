@@ -1,5 +1,5 @@
 // Nilai ini adalah kata kunci placeholder yang akan diganti otomatis oleh GitHub Actions
-const API_URL = "ISI_API_URL_RAHASIA_DISINI";
+const API_URL = "https://script.google.com/macros/s/AKfycbwtEGd_Cbabxtbx7v8Qdolgl3OXFKHOgE-wRGCoLPQCHtLb-8yvPsyCIEsmDlgp_nSWgA/exec";
 
 const form = document.getElementById('transaction-form');
 const loader = document.getElementById('loader');
