@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-# TAMBAHKAN BLOK INI UNTUK MEMBERIKAN IZIN TULIS SECARA PAKSA
+# Izin ini WAJIB ada agar robot bisa menyimpan perubahan URL ke branch gh-pages
 permissions:
   contents: write
 
@@ -14,15 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        # Menggunakan versi v4 agar warning Node.js hilang
         uses: actions/checkout@v4
 
       - name: Inject API URL Secret
         run: |
-          sed -i 's|ISI_API_URL_RAHASIA_DISINI|'${{ secrets.API_URL }}'|g' script.js
+          # Menggunakan tanda kutip ganda (") agar secret terbaca dengan sempurna
+          sed -i "s|ISI_API_URL_RAHASIA_DISINI|${{ secrets.API_URL }}|g" script.js
 
       - name: Deploy to GitHub Pages
-        # Menggunakan versi terbaru agar lebih stabil
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
